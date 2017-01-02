@@ -575,19 +575,20 @@ public class ToDoList extends JPanel {
        for (Map.Entry<String, ArrayList<Task>> entry : recurringTasks.entrySet()){
            for (int i = 0; i < 4; i++){
                
-               if ((entry.getValue().get(i).getCompleted()) == false)
-                    System.out.println(0 + " ");
-               else
-                   System.out.println(1 + " ");
-                       
-           }
-          // times++;
+            if (entry.getValue().get(i).getCompleted() == true){
+                count[i] += 1;
+            }
+            else
+                count[i] += 0;
+           
+            }
+          times++;
        }
-       /*double japanese = count[0] / times;
-       double programming = count[1] / times;
-       double calories = count[2] / times;
-       double drinking = count[3] / times;
-       JOptionPane.showMessageDialog(this, "Japanese " + japanese + "%\n" + "Programming " + programming + "%\n" + "Calories " + calories + "%\n" + "Drinking " + drinking + "%");*/
+       double japanese = (count[0] / times) * 100;
+       double programming = (count[1] / times) * 100;
+       double calories = (count[2] / times) * 100;
+       double drinking = (count[3] / times) * 100;
+       JOptionPane.showMessageDialog(this, "Japanese " + japanese + "%\n" + "Programming " + programming + "%\n" + "Calories " + calories + "%\n" + "Drinking " + drinking + "%");
    }
 }
 }
