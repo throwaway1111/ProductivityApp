@@ -572,15 +572,17 @@ public class ToDoList extends JPanel {
             }
        double times = 0;
        double [] count = {0,0,0,0};
+       int [] streaks = {0,0,0,0};
        for (Map.Entry<String, ArrayList<Task>> entry : recurringTasks.entrySet()){
            for (int i = 0; i < 4; i++){
                
             if (entry.getValue().get(i).getCompleted() == true){
                 count[i] += 1;
+                streaks[i] += 1;
             }
             else
                 count[i] += 0;
-           
+                streaks[i] += 0;
             }
           times++;
        }
@@ -588,7 +590,7 @@ public class ToDoList extends JPanel {
        double programming = (count[1] / times) * 100;
        double calories = (count[2] / times) * 100;
        double drinking = (count[3] / times) * 100;
-       JOptionPane.showMessageDialog(this, "Japanese " + japanese + "%\n" + "Programming " + programming + "%\n" + "Calories " + calories + "%\n" + "Drinking " + drinking + "%");
+       JOptionPane.showMessageDialog(this, "Japanese " + japanese + "%" + " Streaks: " + streaks[0] + " times\n" + "Programming " + programming + "%" + " Streaks: " + streaks[1] + " times\n" + "Calories " + calories + "%" + " Streaks: " + streaks[2] + " times\n" + "Drinking " + drinking + "%" + " Streaks: " + streaks[3]);
    }
 }
 }
